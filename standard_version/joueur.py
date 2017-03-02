@@ -4,11 +4,14 @@ class Joueur:
         self.nom = nom
         self.capital = capital_depart
         self.position = position_depart
+        self.proprietes = []
 
     def avancer_de(self, nbr_cases, plateau):
         """
-        :param nbr_cases:   int     Nombre de case duquel il faut avancer le pion.
-        :param plateau:     list    Plateau sur lequel se déplace le pion.
+        :param nbr_cases: Nombre de case duquel il faut avancer le pion.
+        :type nbr_cases: int
+        :param plateau: Plateau sur lequel se déplace le pion.
+        :type plateau: list
         :return:    None    Modifie directement l'arttribut position de l'objet self.
         """
         for case in range(nbr_cases):
@@ -23,6 +26,16 @@ class Joueur:
         for i in range(des.nombre_de_des):
             rep += randint(1, des.nombre_de_faces)
         return rep
+
+    def payer(self, somme):
+        self.capital -= somme
+
+    def recevoir(self, somme):
+        self.capital += somme
+
+    def acheter(self, propriete):
+        self.payer(propriete.prix_achat)
+        self.proprietes.append(propriete)
 
 
 def creer_joueurs(nbr_joueurs):
