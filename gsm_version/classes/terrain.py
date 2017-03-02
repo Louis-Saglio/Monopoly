@@ -2,9 +2,18 @@ class Terrain:
 
     def __init__(self, attributs):
         self.attr = attributs
+        self.set_nom(attributs["nom"])
         self.set_prix_d_achat_terrain(attributs["prix_d_achat_terrain"])
         self.set_prix_d_achat_maison(attributs["prix_d_achat_maison"])
-        self.set_nom(attributs["nom"])
+        # Attention ! Toujours laisser la ligne suivante a la fin de la methode init
+        # Fin de la methode init
+
+    # Gestion de nom
+    def get_nom(self):
+        return self.nom
+
+    def set_nom(self, new_nom):
+        self.nom = new_nom
 
     # Gestion de prix_d_achat_terrain
     def get_prix_d_achat_terrain(self):
@@ -19,34 +28,4 @@ class Terrain:
 
     def set_prix_d_achat_maison(self, new_prix_d_achat_maison):
         self.prix_d_achat_maison = new_prix_d_achat_maison
-
-    # Gestion de nom
-    def get_nom(self):
-        return self.nom
-
-    def set_nom(self, new_nom):
-        self.nom = new_nom
-
-
-class Joueur:
-
-    def __init__(self, attributs):
-        self.attr = attributs
-        self.set_argent(attributs["argent"])
-        self.set_nom(attributs["nom"])
-
-    # Gestion de argent
-    def get_argent(self):
-        return self.argent
-
-    def set_argent(self, new_argent):
-        self.argent = new_argent
-
-    # Gestion de nom
-    def get_nom(self):
-        return self.nom
-
-    def set_nom(self, new_nom):
-        self.nom = new_nom
-
 
